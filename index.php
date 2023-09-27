@@ -45,7 +45,7 @@ $password = $_POST['pwd'];
         header("Location: login.php?message=Username or password incorrect");
         echo "err";
     }
-
+    //show details from database
     $detail="select* from user where username = '$username'";
     $result2=mysqli_query($conn,$detail);
     while($row=mysqli_fetch_assoc($result2)){
