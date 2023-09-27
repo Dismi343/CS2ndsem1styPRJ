@@ -43,6 +43,7 @@
       <li style="float:right"><a href="login.php">Login</a></li>
       <li style="float:right"><a href="about.php">About</a></li>
       <li style="float:right"><a href="shop.php">Shop</a></li>
+      <li style="float:right"><a href="index.php">Home</a></li>
     </ul>
 
     
