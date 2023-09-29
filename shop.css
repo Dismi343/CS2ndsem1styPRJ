@@ -14,7 +14,7 @@ body {
 /* about us */
 
 .about {
-  background-color: #0a2640;
+  background-color: #0b74d6;
   color: #fff;
   height: 600px;
   padding: 4rem 8rem;
@@ -137,3 +137,5 @@ footer {
   display: table;
   clear: both;
 }
+
+
