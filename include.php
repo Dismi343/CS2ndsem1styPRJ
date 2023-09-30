@@ -10,7 +10,7 @@ $password=$_POST['Pss'];
 $conn = mysqli_connect('localhost','root','','test');
 
 if(!$conn){
-    echo "not suceed";
+    die('couldnot connect'.mysqli_connect_error($conn));
     //die('could not connect:'.$conn->connect_error);
 }
 else{

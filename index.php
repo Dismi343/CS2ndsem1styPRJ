@@ -1,14 +1,22 @@
+<Doctype html>
+
+<head>
+    <style>
+        h1{
+            text-align:center;
+            font-family:Arial, Helvetica, sans-serif;
+
+        }
+        </style>
+</head>
+
+
 <?php 
 include_once 'header.php';
 
 
 ?>
-
-
-        <h1> Hello </h1>
-        <p>welcome  my web</p>
-
-
+<h1> Personal Details </h1>
 <?php       
 //connect to database
 $conn = mysqli_connect('localhost','root','','test');
@@ -36,8 +44,21 @@ $password = $_POST['pwd'];
         header("Location: login.php?message=Username or password incorrect");
         echo "err";
     }
+
+        //show details from database
+        $detail="select* from user where username = '$username'";
+        $result2=mysqli_query($conn,$detail);
+        while($row=mysqli_fetch_assoc($result2)){
+        echo "Name= ".$row['name']."<br>";
+        echo "Email= ".$row['email']."<br>";
+        echo "Username= ".$row['username'];
+        }
+    
+        mysqli_close($conn);
 ?>
+
+<h1>Details of the rented Laptop</h1>
 <?php 
  include_once 'footer.php';
 ?>
-      
+</html>
