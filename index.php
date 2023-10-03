@@ -21,7 +21,7 @@ include_once 'header.php';
 //connect to database
 $conn = mysqli_connect('localhost','root','','test');
 if(!$conn){
-  echo "connectiion faild";
+    die('couldnot connect'.mysqli_connect_error($conn));
 }
 $username = $_POST['firstname'];  
 $password = $_POST['pwd'];  
@@ -42,7 +42,7 @@ $password = $_POST['pwd'];
     }  
     else{     
         header("Location: login.php?message=Username or password incorrect");
-        echo "err";
+        
     }
 
         //show details from database

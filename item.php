@@ -182,54 +182,46 @@ img.hover-shadow {
   color: white;}
 </style>
 <body>
-
 <h2 style="text-align:center">Select Your Laptop or Destop</h2>
-
 <div class="row">
   <div class="column">
-       <button class="button1 button01">Buy Now</button>
-       <button class="button1 button02">Add to Cart</button>
-    <img src="https://www.asus.com/media/Odin/Websites/global/Series/9.png" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
-  </div>
-  <div class="column">
-       <button class="button1 button01">Buy Now</button>
-       <button class="button1 button02">Add to Cart</button>
-    <img src="https://5.imimg.com/data5/SELLER/Default/2022/7/YT/MQ/YO/42538528/asus-vivobook-15-2022-15-6-39-62-cms-fhd-intel-core-i5-1240p-12th-gen-thin-and-light-laptop.png" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
-  </div>
-  <div class="column">
-       <button class="button1 button01">Buy Now</button>
-       <button class="button1 button02">Add to Cart</button>
-    <img src="https://www.asus.com/media/Odin/Websites/global/Series/12.png" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
-  </div>
-  <div class="column">
-       <button class="button1 button01">Buy Now</button>
-       <button class="button1 button02">Add to Cart</button>
-    <img src="https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1689155014/Croma%20Assets/Computers%20Peripherals/Laptop/Images/272749_0_m99i3s.png?tr=w-1000" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
-  </div>
-</div>
-</br> </br> </br> </br> </br> 
-<div class="row">
-  <div class="column">
-       <button class="button1 button01">Buy Now</button>
+<?php
+$con = mysqli_connect('localhost','root','','test');
+if(!$con){
+    die('couldnot connect'.mysqli_connect_error($conn));
+}
+else{
+$lap="select* from LaptopDetails";
+$result=mysqli_query($con,$lap);
+while($row=mysqli_fetch_assoc($result)){
+
+?>
+
+    
+    <img src="./assets/hero-image (2).png" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+   
+  <?php
+    echo "No. ".$row['Laptop_Code']."<br>";
+    echo "Brand = ".$row['Laptop_name']."<br>";
+    echo "Processor = ".$row['Processor']."<br>";
+    echo "RAM= ".$row['Ram']."</br>";
+    echo "Operating System = ".$row['Operating_System']."<br>";
+    echo "Rental price per day = Rs.".$row['Rental_Price_Per_Day'].".00 (Upto 5 days)<br>";
+    echo "Charge for an extra day = Rs.".$row['Charge_For_An_ExtraDay'].".00<br><br>";
+
+?>
+
+<button class="button1 button01">Buy Now</button>
        <button class="button1 button02">Add to Cart</button>
 
-    <img src="https://www.asus.com/media/Odin/Websites/global/Series/9.png" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
-  </div>
-  <div class="column">
-       <button class="button1 button01">Buy Now</button>
-       <button class="button1 button02">Add to Cart</button>
-    <img src="https://5.imimg.com/data5/SELLER/Default/2022/7/YT/MQ/YO/42538528/asus-vivobook-15-2022-15-6-39-62-cms-fhd-intel-core-i5-1240p-12th-gen-thin-and-light-laptop.png" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
-  </div>
-  <div class="column">
-       <button class="button1 button01">Buy Now</button>
-       <button class="button1 button02">Add to Cart</button>
-    <img src="https://www.asus.com/media/Odin/Websites/global/Series/12.png" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
-  </div>
-  <div class="column">
-       <button class="button1 button01">Buy Now</button>
-       <button class="button1 button02">Add to Cart</button>
-    <img src="https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1689155014/Croma%20Assets/Computers%20Peripherals/Laptop/Images/272749_0_m99i3s.png?tr=w-1000" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
-  </div>
+       <?php
+
+    }
+  }
+    mysqli_close($con);
+
+  ?>
+  
 </div>
 
 
