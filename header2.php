@@ -42,7 +42,6 @@
     <div class = 'ul'>
      
       <li style="float:right"><a href="about.php">About</a></li>
-      <li style="float:right"><a href="shop.php">Shop</a></li>
     </ul>
         </div>
     

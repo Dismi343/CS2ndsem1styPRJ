@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -191,7 +194,7 @@ if(!$con){
     die('couldnot connect'.mysqli_connect_error($conn));
 }
 else{
-$lap="select* from LaptopDetails";
+$lap="select* from LaptopDetails order by Laptop_Code ASC";
 $result=mysqli_query($con,$lap);
 while($row=mysqli_fetch_assoc($result)){
 
@@ -208,11 +211,17 @@ while($row=mysqli_fetch_assoc($result)){
     echo "Operating System = ".$row['Operating_System']."<br>";
     echo "Rental price per day = Rs.".$row['Rental_Price_Per_Day'].".00 (Upto 5 days)<br>";
     echo "Charge for an extra day = Rs.".$row['Charge_For_An_ExtraDay'].".00<br><br>";
-
+    
 ?>
+      <form action="rent.php" method="post">
+      <input type="hidden" name="hid_code" value="<?php echo $row['Laptop_Code'];?>">
+      <input type="hidden" name="hid_name" value="<?php echo $row["Laptop_name"];?>">
+      <input type="hidden" name="hid_ram" value="<?php echo $row["Ram"];?>">
+      <input type="hidden" name="hid_op" value="<?php echo $row["Operating_System"];?>">
+      <input type="hidden" name="hid_rentpri" value="<?php echo $row["Rental_Price_Per_Day"];?>">
+      <input type="submit" name="Rent" value="rent">
 
-<button class="button1 button01">Buy Now</button>
-       <button class="button1 button02">Add to Cart</button>
+      </form>
 
        <?php
 

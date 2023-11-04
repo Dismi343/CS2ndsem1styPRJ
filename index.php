@@ -5,7 +5,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $database = "test";
-
+session_start();
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);
 
@@ -20,10 +20,18 @@ if ($conn->connect_error) {
 <html>
 <head>
     <title>User Dashboard</title>
+    <style>
+        .log{
+            text-align:right;
+        }
+    </style>
 </head>
 <body>
+    
+  
     <h1 >Welcome to Your User Dashboard</h1>
-
+    <h2>Personal Details</h2>
+<br>
     <?php
    $username = $_POST['firstname'];  
    $password = $_POST['pwd'];  
@@ -41,6 +49,7 @@ if ($conn->connect_error) {
          
        if($count == 1){  
            header("loggind suceed");
+           $_SESSION["uname"]=$username;
        }  
        else{     
            header("Location: login.php?message=Username or password incorrect");
@@ -55,28 +64,33 @@ if ($conn->connect_error) {
            echo "Email = ".$row['email']."<br>";
            echo "Username = ".$row['username'];
            }
-       
+           //echo $_SESSION["uname"];
+
           
    ?>
+    
    <br><br>
  <?php  
 
-$rental_query = "SELECT* FROM rent WHERE username = '$username'";
+$rental_query = "SELECT* FROM rental1 WHERE username = '$username'";
 $rental_result = $conn->query($rental_query);
     if ($rental_result->num_rows > 0) {
         echo "<h2>Your Rentals:</h2>";
         echo "<ul>";
         while ($rental_row = $rental_result->fetch_assoc()) {
-            echo "<li>Laptop Name: " . $rental_row["lapname"] . "</li>";
+            echo "<li>Laptop Name: " . $rental_row["lpname"] . "</li>";
             echo "<li>User Name: " . $rental_row["username"] . "</li>";
-            echo "<li>Rental ID: " . $rental_row["rental_id"] . "</li>";
-            echo "<li>Rental Date: " . $rental_row["rental_date"] . "</li>";
-            echo "<li>Return Date: " . $rental_row["return_date"] . "</li>";
+            echo "<li>Rental ID: " . $rental_row["lpcode"] . "</li>";
+            echo "<li>Ram: " . $rental_row["lpram"] . "</li>";
+            echo "<li>Operating System: " . $rental_row["lpop"] . "</li>";
+            echo "<li>Price: " . $rental_row["lppri"] . "</li>";
+
             echo "<br>";
         }
         echo "</ul>";
     }
    
+
    
     mysqli_close($conn);
   
@@ -84,7 +98,10 @@ $rental_result = $conn->query($rental_query);
     <?php 
     include_once 'footer.php';
     ?>
-    <br><a href="logout.php">Logout</a>
-    <br><a href="shop.php">Rent</a> <!-- Create a logout page -->
+    <br><button onclick= "window.location.href='login.php'">Logout</button>
+    <div class="log">
+    <button onclick= "window.location.href='shop.php'">Go to shop</button> 
+    <br>
+    </div>
 </body>
 </html>

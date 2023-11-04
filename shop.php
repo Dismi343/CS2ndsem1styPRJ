@@ -1,3 +1,5 @@
+<?php session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,10 +14,12 @@
     <?php 
       include_once 'header.php';
     ?>
+
+ 
     <!-- about us -->
     <section class="about">
       <h3>Welcome to CompterHub</h3>
-      <h1>
+      <h1>    
         We Love To Make Great <br />
         Things ,Things That Matter
       </h1>
