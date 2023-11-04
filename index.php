@@ -88,6 +88,8 @@ $rental_result = $conn->query($rental_query);
             echo "<br>";
         }
         echo "</ul>";
+
+    
     }
    
 
@@ -98,6 +100,7 @@ $rental_result = $conn->query($rental_query);
     <?php 
     include_once 'footer.php';
     ?>
+    <br><button onclick="window.location.href='function.php'">clear data</button>
     <br><button onclick= "window.location.href='login.php'">Logout</button>
     <div class="log">
     <button onclick= "window.location.href='shop.php'">Go to shop</button> 
