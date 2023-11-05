@@ -32,10 +32,12 @@ else{
 $conn->close();
 
 }
-
-
-
 ?>
+
+<br><button onclick="window.location.href='shop.php'">Back</button>
+
+
+
 
 <html>
   

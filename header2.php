@@ -25,6 +25,40 @@
               cursor: pointer;
             }
 
+
+            .button1 {
+              width: 100%;
+              background-color: #1504fe;
+              color: white;
+              padding: 14px 20px;
+              margin: 8px 0;
+              border: none;
+              border-radius: 20px;
+              cursor: pointer;
+            }
+
+            .button3 {
+              width: 100%;
+              background-color: #0a2640;
+              color: white;
+              padding: 14px 20px;
+              margin: 8px 0;
+              border: none;
+              border-radius: 20px;
+              cursor: pointer;
+            }
+
+            .button2 {
+              width: 10%;
+              background-color: #FF0000;
+              color: white;
+              padding: 14px 50px;
+              margin: 8px 0;
+              border: none;
+              border-radius: 40px;
+              cursor: pointer;
+            }
+
             input[type=submit]:hover {
               background-color: blue;
             }

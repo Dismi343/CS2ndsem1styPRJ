@@ -28,8 +28,7 @@ if ($conn->connect_error) {
 <body>
     
   
-    <h1 >Welcome to Your User Dashboard</h1>
-    <h2>Personal Details</h2>
+    <h1 style="text-align:center">Welcome to Your Dashboard</h1>
 <br>
     <?php
    $username = $_POST['firstname'];  
@@ -58,11 +57,14 @@ if ($conn->connect_error) {
            //show details from database
            $detail="select* from user where username = '$username'";
            $result2=mysqli_query($conn,$detail);
+           echo "<h2>Personal Details</h2>";
+           echo "<ul>";
            while($row=mysqli_fetch_assoc($result2)){
-           echo "Name = ".$row['name']."<br>";
-           echo "Email = ".$row['email']."<br>";
-           echo "Username = ".$row['username'];
+           echo "<li>Name = ".$row['name']."</li>";
+           echo "<li>Email = ".$row['email']."</li>";
+           echo "<li>Username = ".$row['username']."</li>";
            }
+           echo"</ul>";
            //echo $_SESSION["uname"];
 
           
@@ -75,7 +77,7 @@ $rental_query = "SELECT* FROM rental1 WHERE username = '$username'";
 $rental_result = $conn->query($rental_query);
     if ($rental_result->num_rows > 0) {
         echo "<h2>Your Rentals:</h2>";
-        echo "<ul>";
+        echo "<br><ul>";
         while ($rental_row = $rental_result->fetch_assoc()) {
             echo "<li>Laptop Name: " . $rental_row["lpname"] . "</li>";
             echo "<li>User Name: " . $rental_row["username"] . "</li>";
@@ -83,7 +85,6 @@ $rental_result = $conn->query($rental_query);
             echo "<li>Ram: " . $rental_row["lpram"] . "</li>";
             echo "<li>Operating System: " . $rental_row["lpop"] . "</li>";
             echo "<li>Price: " . $rental_row["lppri"] . "</li>";
-
             echo "<br>";
         }
         echo "</ul>";
@@ -96,14 +97,19 @@ $rental_result = $conn->query($rental_query);
     mysqli_close($conn);
   
     ?>
+   
+    <br><button class="button2" onclick="window.location.href='function.php'">clear data</button>
+    <br>
+
+    <div class="log">
+    <br><button class="button3" onclick= "window.location.href='shop.php'">Go to shop</button> 
+    <br><button class="button1"onclick= "window.location.href='login.php'">Logout</button>
+
+    <br>
+    </div>
+
     <?php 
     include_once 'footer.php';
     ?>
-    <br><button onclick="window.location.href='function.php'">clear data</button>
-    <br><button onclick= "window.location.href='login.php'">Logout</button>
-    <div class="log">
-    <button onclick= "window.location.href='shop.php'">Go to shop</button> 
-    <br>
-    </div>
 </body>
 </html>
