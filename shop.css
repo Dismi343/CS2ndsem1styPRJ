@@ -67,7 +67,7 @@ p {
 .buttons {
   display: flex;
   flex-direction: row;
-  gap: 3rem;
+  gap: 6rem;
 }
 button {
   padding: 15px 50px;
@@ -124,18 +124,6 @@ footer {
 
 /* ---itom---- */
 
-.column {
-  float: left;
-  width: 300px;
-  padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
-}
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
 
 

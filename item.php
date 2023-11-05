@@ -14,20 +14,21 @@ body {
   box-sizing: border-box;
 }
 
-.row > .column {
-  padding: 0 8px;
-}
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
 .column {
-  float: left;
-  width: 25%;
+  padding: 0 8px;
+  display: block;
+  padding: flex;
+  flex-direction: row; 
+  justify-content: center;
+  align-items : center;
 }
+
+
+
+
+
+  
+
 
 /* The Modal (background) */
 .modal {
@@ -146,48 +147,15 @@ img.hover-shadow {
 }
 
 
-
-/* Buy button */
-
-
-.button1 {
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-}
-
-.button01 {
-  background-color: white; 
-  color: black; 
-  border: 2px solid #4CAF50;
-}
-
-.button01:hover {
-  background-color: #4CAF50;
-  color: white;
-}
-
-.button02 {
-  background-color: white; 
-  color: black; 
-  border: 2px solid #008CBA;
-}
-
-.button02:hover {
-  background-color: #008CBA;
-  color: white;}
 </style>
+
 <body>
 <h2 style="text-align:center">Select Your Laptop or Destop</h2>
-<div class="row">
+
   <div class="column">
+
+  
+
 <?php
 $con = mysqli_connect('localhost','root','','test');
 if(!$con){
@@ -195,14 +163,15 @@ if(!$con){
 }
 else{
 $lap="select* from LaptopDetails order by Laptop_Code ASC";
+echo '<div style="display: flex; flex-direction: column; align-items: center;">';
 $result=mysqli_query($con,$lap);
 while($row=mysqli_fetch_assoc($result)){
 
-?>
 
-    
-    <img src="./assets/hero-image (2).png" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
-   
+  
+
+?>
+<img src="./assets/hero-image (2).png" style="width:25%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
   <?php
     echo "No. ".$row['Laptop_Code']."<br>";
     echo "Brand = ".$row['Laptop_name']."<br>";
@@ -211,7 +180,7 @@ while($row=mysqli_fetch_assoc($result)){
     echo "Operating System = ".$row['Operating_System']."<br>";
     echo "Rental price per day = Rs.".$row['Rental_Price_Per_Day'].".00 (Upto 5 days)<br>";
     echo "Charge for an extra day = Rs.".$row['Charge_For_An_ExtraDay'].".00<br><br>";
-    
+
 ?>
       <form action="rent.php" method="post">
       <input type="hidden" name="hid_code" value="<?php echo $row['Laptop_Code'];?>">
@@ -219,19 +188,24 @@ while($row=mysqli_fetch_assoc($result)){
       <input type="hidden" name="hid_ram" value="<?php echo $row["Ram"];?>">
       <input type="hidden" name="hid_op" value="<?php echo $row["Operating_System"];?>">
       <input type="hidden" name="hid_rentpri" value="<?php echo $row["Rental_Price_Per_Day"];?>">
-      <input type="submit" name="Rent" value="rent">
+      <input type="submit" name="Rent" value="rent" id="Rent" style="display: inline-block; background-color: 
+       background-color: #0b74d6; padding: 20px; width: 200px; color: #000000; font-color: black;
+       text-align: center; border: 4px double #cccccc; border-radius: 10px; font-size: 28px;  cursor: pointer; margin: 5px;">
+
 
       </form>
 
        <?php
-
+       
     }
   }
     mysqli_close($con);
 
   ?>
   
+  
 </div>
+
 
 
 

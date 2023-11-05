@@ -46,20 +46,25 @@
       Introduction 
       </h1>
       <p>
-      Our choice in this subject related project was to create a website. Nowadays, ordering and buying goods online can be identified as a popular way to make our daily activities more convenient. But our project was to create a web site where laptop and desktop computers can be rented as a result of the fact that our basic foundation was to rent out equipment using minimal online technology. Our project, which was created using our specialities, html, php, java script, css and dbms... (name of the website)... let's examine the process step by step
+      Our choice in this subject related project was to create a website. Nowadays, 
+      ordering and buying goods online can be identified as a popular way to make our 
+      daily activities more convenient. But our project was to create a web site where
+       laptop and desktop computers can be rented as a result of the fact that our basic
+        foundation was to rent out equipment using minimal online technology. Our project, 
+        which was created using our specialities, html, php, java script, css and dbms... let's examine the process step by step
       </p>
       <div class="data">
         <div class="data-child">
-          <h2 class="data-main">120m</h2>
-          <p>cool feature tiles</p>
+          <h2 class="data-main">6 Members</h2>
+          <p>Group</p>
         </div>
         <div class="data-child">
-          <h2 class="data-main">10,000</h2>
-          <p>cool feature tiles</p>
+          <h2 class="data-main">5 Weeks</h2>
+          <p>Time</p>
         </div>
         <div class="data-child">
-          <h2 class="data-main">240</h2>
-          <p>cool feature tiles</p>
+          <h2 class="data-main">100 coffe</h2>
+          <p>Enorgy</p>
         </div>
       </div>
     </section></br></br></br></br>
@@ -69,17 +74,17 @@
     <?php 
       include_once 'item.php';
     ?>
-    </br></br></br></br>
+    </br></br></br></br></br></br></br></br>
 
     
     
     <!-- footer -->
+    
     <footer>
       <div class="footer-data-left">
-        <img src="./assets/logo-dark.png" alt="logo" />
+        <img src="./assets/logo-.png" alt="logo" />
         <p>
-          Social media validation business model canvas graphical user interface
-          launch party creative facebook iPad twitter.
+        "Empowering productivity and gaming, our laptop and desktop rental platform provides flexible, high-performance computing solutions tailored to your needs, ensuring seamless work, study, and play experiences."
         </p>
       </div>
       <div class="footer-data">
@@ -101,5 +106,6 @@
         <p>Services</p>
       </div>
     </footer>
+
   </body>
 </html>

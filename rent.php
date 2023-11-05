@@ -35,11 +35,7 @@ $conn->close();
 
 
 
-
 ?>
-
-<br><button onclick="window.location.href='index.php'">Back</button>
-
 
 <html>
   
